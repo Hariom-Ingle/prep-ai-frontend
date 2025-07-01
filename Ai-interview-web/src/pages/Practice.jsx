@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
-import { ArrowLeftRight, MessageSquareText, Mic, RotateCcw, X, Volume2 } from 'lucide-react'; // Import Volume2 icon
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import { ArrowLeftRight, MessageSquareText, Mic, RotateCcw, Volume2, X } from 'lucide-react'; // Import Volume2 icon
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import PracticePrerequisiteDialog from '../components/common/PracticePrerequisiteDialog';
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
 // Import your placeholder image
 import interviewerPlaceholderImage from '../assets/interviewer.png';
@@ -104,7 +104,7 @@ function Practice() {
         setLoadingQuestions(true);
         setError(null);
         try {
-            const response = await fetch(`http://localhost:5000/api/interview/questions/${id}`);
+            const response = await fetch(`https://prep-ai-backend.onrender.com/api/interview/questions/${id}`);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Failed to fetch interview questions.');
@@ -163,7 +163,7 @@ function Practice() {
         console.log("Sending answer to backend:", answerText);
 
         try {
-            const response = await fetch('http://localhost:5000/api/interview/record-answer-text', {
+            const response = await fetch('/api/interview/record-answer-text', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -40,7 +40,7 @@ function VerifyEmail() {
   const handleInitialSendOtp = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/send-verify-otp',
+        'https://prep-ai-backend.onrender.com/api/auth/send-verify-otp',
         {},
         {
           withCredentials: true,
@@ -95,7 +95,7 @@ function VerifyEmail() {
 
   const handleResendOtp = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/resend-otp', {
+      const response = await fetch('https://prep-ai-backend.onrender.com/api/auth/resend-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ function Feedback() {
             setError(null);
             try {
                 // Adjust this URL to your actual backend endpoint
-                const response = await fetch(`http://localhost:5000/api/interview/feedback/${interviewId}`);
+                const response = await fetch(`https://prep-ai-backend.onrender.com/api/interview/feedback/${interviewId}`);
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.message || 'Failed to fetch interview feedback.');

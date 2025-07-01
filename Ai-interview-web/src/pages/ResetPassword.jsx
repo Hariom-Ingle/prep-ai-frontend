@@ -31,7 +31,7 @@ function ResetPassword() {
 
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5000/api/auth/send-reset-otp', {
+            const res = await fetch('https://prep-ai-backend.onrender.com/api/auth/send-reset-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),
@@ -56,7 +56,7 @@ function ResetPassword() {
 
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5000/api/auth/verify-reset-otp', {
+            const res = await fetch('https://prep-ai-backend.onrender.com/api/auth/verify-reset-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp }),
@@ -83,7 +83,7 @@ function ResetPassword() {
 
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:5000/api/auth/reset-password`, {
+            const res = await fetch(`https://prep-ai-backend.onrender.com/api/auth/reset-password`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, newPassword: password }),
